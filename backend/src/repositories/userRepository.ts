@@ -5,13 +5,10 @@ const findById = async (userId: number): Promise<User | null> => {
   return await prisma.user.findUnique({where: {userId}});
 };
 
-const createUser = async (firstName: string, lastName: string, username: string,
-  email: string, password: string
-): Promise<User> => {
+const createUser = async (firstName: string, lastName: string, email: string, password: string ): Promise<User> => {
   return await prisma.user.create({data: {
     firstName,
     lastName,
-    username,
     email,
     password
   }});
