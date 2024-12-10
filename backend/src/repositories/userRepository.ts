@@ -5,6 +5,10 @@ const findById = async (userId: number): Promise<User | null> => {
   return await prisma.user.findUnique({where: {userId}});
 };
 
+const findByEmail = async (email: string): Promise<User | null> => {
+  return await prisma.user.findUnique({where: {email}});
+};
+
 const createUser = async (firstName: string, lastName: string, email: string, password: string ): Promise<User> => {
   return await prisma.user.create({data: {
     firstName,
@@ -26,5 +30,5 @@ const deleteUser = async (userId: number) => {
 };
 
 export default {
-  findById, createUser, updateUser, deleteUser
+  findById, findByEmail, createUser, updateUser, deleteUser
 };
