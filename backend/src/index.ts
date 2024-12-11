@@ -1,6 +1,7 @@
 import logger from "@lib/utils/logger";
 import app from "./app";
+import config from "@lib/utils/config";
 
-app.listen(3000, () => {
-  logger.info("Server running at PORT: 3000");
+app.listen(config.port, () => {
+  logger.info(`Server running at PORT: ${config.port}`);
 });
