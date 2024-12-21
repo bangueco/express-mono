@@ -4,6 +4,10 @@ import httpStatusCode from "@lib/utils/httpStatusCode";
 import { User } from "@prisma/client";
 import userRepository from "@repositories/user.repository";
 
+const getUsers = async () => {
+  return await userRepository.getUsers();
+};
+
 const findById = async (userId: number) => {
   const user = await userRepository.findById(userId);
 
@@ -58,6 +62,10 @@ const deleteUser = async (userId: number) => {
   return await userRepository.deleteUser(userId);
 };
 
+const deleteUsers = async () => {
+  return await userRepository.deleteUsers();
+};
+
 export default {
-  findById, findByEmail, createUser, updateUser, deleteUser
+  getUsers, findById, findByEmail, createUser, updateUser, deleteUser, deleteUsers
 };

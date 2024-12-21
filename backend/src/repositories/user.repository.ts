@@ -1,6 +1,10 @@
 import prisma from "@lib/prismaClient";
 import { User } from "@prisma/client";
 
+const getUsers = async (): Promise<Array<User> | null> => {
+  return await prisma.user.findMany();
+};
+
 const findById = async (userId: number): Promise<User | null> => {
   return await prisma.user.findUnique({where: {userId}});
 };
@@ -29,6 +33,10 @@ const deleteUser = async (userId: number) => {
   return await prisma.user.delete({where: {userId}});
 };
 
+const deleteUsers = async () => {
+  return await prisma.user.deleteMany();
+};
+
 export default {
-  findById, findByEmail, createUser, updateUser, deleteUser
+  getUsers, findById, findByEmail, createUser, updateUser, deleteUser, deleteUsers
 };
