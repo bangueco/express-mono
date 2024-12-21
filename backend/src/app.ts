@@ -4,7 +4,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
 import compression from "compression";
-import authRouter from "@routes/authRoute";
+import authRouter from "@routes/auth.routes";
 import errorHandler from "@middlewares/errorHandler";
 import unknownEndpoint from "@middlewares/unknownEndpoint";
 
