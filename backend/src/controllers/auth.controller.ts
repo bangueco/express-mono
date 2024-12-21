@@ -1,5 +1,5 @@
 import httpStatusCode from "@lib/utils/httpStatusCode";
-import authService from "@services/authService";
+import authService from "@services/auth.service";
 import { NextFunction, Request, Response } from "express";
 
 interface IRegisterRequest {

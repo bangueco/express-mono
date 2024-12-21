@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import logger from "./logger";
 dotenv.config();
 
-const { DATABASE_URL, NODE_ENV, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = process.env
+const { DATABASE_URL, NODE_ENV, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = process.env;
 
 if (!DATABASE_URL) {
   logger.error("DATABASE_URL environment variable is not defined!");

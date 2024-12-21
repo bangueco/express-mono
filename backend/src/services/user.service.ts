@@ -2,7 +2,7 @@ import bcrypt from "@lib/bcrypt";
 import { ApiError, ValidationError } from "@lib/utils/appError";
 import httpStatusCode from "@lib/utils/httpStatusCode";
 import { User } from "@prisma/client";
-import userRepository from "@repositories/userRepository";
+import userRepository from "@repositories/user.repository";
 
 const findById = async (userId: number) => {
   const user = await userRepository.findById(userId);
