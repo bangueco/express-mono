@@ -52,7 +52,7 @@ const accessToken = (request: Request, _response: Response, next: NextFunction) 
       throw new ApiError(httpStatusCode.UNAUTHORIZED, "Bearer token not found.");
     }
 
-    const decoded = jwt.verifyToken(token);
+    const decoded = jwt.verifyAccessToken(token);
 
     if (typeof decoded !== "string") {
       request.user = decoded;
