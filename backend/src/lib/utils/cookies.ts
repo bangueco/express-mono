@@ -20,7 +20,7 @@ export const cookieConfig: CookieConfig = {
     options: {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      secure: config.environment === "production",
+      secure: config.environment !== "production",
       sameSite: config.environment === "production" ? "strict" : "none",
     },
   },
