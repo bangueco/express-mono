@@ -94,6 +94,18 @@ const login = async (request: Request, response: Response, next: NextFunction): 
   }
 };
 
+const logout = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+  try {
+    response.clearCookie(cookieConfig.refreshToken.name, cookieConfig.refreshToken.options);
+
+    response.status(httpStatusCode.OK).json({
+      message: "Logout successfully!"
+    });
+  } catch (error) {
+    return next(error);
+  }
+};
+
 export default {
-  authenticatedUser, refreshUserToken, register, login
+  authenticatedUser, refreshUserToken, register, login, logout
 };
