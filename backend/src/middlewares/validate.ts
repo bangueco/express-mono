@@ -64,6 +64,26 @@ const accessToken = (request: Request, _response: Response, next: NextFunction) 
   }
 };
 
+const refreshToken = (request: Request, _response: Response, next: NextFunction) => {
+  try {
+    const { refreshToken } = request.cookies;
+
+    if (!refreshToken) {
+      throw new ApiError(httpStatusCode.UNAUTHORIZED, "Refresh token not found.");
+    }
+
+    const payload = jwt.verifyRefreshToken(refreshToken);
+
+    if (typeof payload === "string") {
+      throw new ApiError(httpStatusCode.UNAUTHORIZED, "Invalid refresh token.");
+    }
+
+    next();
+  } catch (error: unknown) {
+    next(error);
+  }
+};
+
 export default {
-  register, login, accessToken
+  register, login, accessToken, refreshToken
 };

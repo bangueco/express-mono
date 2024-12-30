@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // enable cors
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 
 // set security HTTP headers
 app.use(helmet());

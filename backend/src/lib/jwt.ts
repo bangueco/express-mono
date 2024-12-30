@@ -13,6 +13,10 @@ const verifyToken = (token: string): string | jwt.JwtPayload => {
   return jwt.verify(token, config.accessTokenKey);
 };
 
+const verifyRefreshToken = (token: string): string | jwt.JwtPayload => {
+  return jwt.verify(token, config.refreshTokenKey);
+};
+
 export default {
-  generateAccessToken, generateRefreshToken, verifyToken
+  generateAccessToken, generateRefreshToken, verifyToken, verifyRefreshToken
 };
