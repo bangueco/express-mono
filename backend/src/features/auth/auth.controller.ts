@@ -2,8 +2,8 @@ import jwt from "@lib/jwt";
 import { cookieConfig } from "@lib/utils/cookies";
 import httpStatusCode from "@lib/utils/httpStatusCode";
 import { User } from "@prisma/client";
-import authService from "@services/auth.service";
 import { NextFunction, Request, Response } from "express";
+import authService from "./auth.service";
 
 interface IRegisterRequest {
   firstName: string;
