@@ -1,7 +1,7 @@
 import { test, describe, expect, afterAll } from "vitest";
 import supertest from "supertest";
 
-import userService from "@services/user.service";
+import { userService } from "@features/users";
 import httpStatusCode from "@lib/utils/httpStatusCode";
 
 import app from "src/app";
